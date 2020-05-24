@@ -7,3 +7,9 @@
 html,body{
 	height: 100%;
 }
+
+.artigo1{
+	width: 100%;
+	padding: 30px;
+	background: rgb(210, 210, 210);
+}
