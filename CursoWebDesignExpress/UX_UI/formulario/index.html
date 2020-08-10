@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Formulário | UI/UX</title>
+        <style type="text/css">
+            *{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body{
+                background: #708090;
+            }
+
+            .container{
+                max-width: 960px;
+                padding: 0 2%;
+                margin: 0 auto;
+            }
+
+            section.formulario{
+                padding: 90px 0;
+            }
+
+            .form-group input[type=text]{
+                width: 100%;
+                height: 40px;
+                border: 1px solid #ccc;
+                padding-left: 10px;
+                margin-bottom: 10px;
+            }
+
+            .form-group textarea{
+                width: 100%;
+                height: 120px;
+                border: 1px solid #ccc;
+                padding: 10px;
+                resize: vertical;
+            }
+
+            .form-group input[type=submit]{
+                width: 60px;
+                height: 30px;
+                cursor: pointer;
+                background: white;
+                border: 0;
+                color: black;
+                margin-top: 10px;
+            }
+
+            .form-group span{
+                display: inline-block;
+                color: black;
+                padding: 4px 0;
+            }
+
+            .box-sucesso{
+                display: none;
+                width: 100%;
+                padding: 10px;
+                background: #ccc;
+                text-align: center;
+                color: black;
+            }
+
+
+
+        </style>
+    </head>
+    <body>
+        
+        <div class="formulario">
+            <div class="container">
+                <form>
+                <div class="form-group">
+                    <span></span>
+                    <input type="text" name="nome" placeholder="Nome...">
+                </div>
+                <div class="form-group">
+                    <span></span>
+                    <input type="text" name="email" placeholder="E-mail...">
+                </div>
+                <div class="form-group">
+                    <span></span>
+                    <textarea name="mensagem" placeholder="Sua mensagem..."></textarea>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Enviar!">
+                </div>
+                </form>
+                <div class="box-sucesso">Sua mensagem foi enviada com sucesso!</div>
+            </div>
+        </section>
+
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        
+        <script>
+            $(function(){
+                $('form').submit(function(){
+                    var erro = false    
+                    var nome = $('[name=nome]').val();
+                    var email = $('[name=email]').val();
+                    var mensagem = $('[name=mensagem]').val();
+                    resetform();
+
+                    if(nome == ''){
+                        erro = true;
+                        var el = $('[name=nome]');
+                        el.parent().find('span').html('Por favor insira seu nome.');
+                        el.css('border','2px solid black');
+                    }
+                    if(nome == ''){
+                        erro = true;
+                        var el = $('[name=email]');
+                        el.parent().find('span').html('Por favor insira seu e-mail.');
+                        el.css('border','2px solid black');
+                    }
+                    if(nome == ''){
+                        erro = true;
+                        var el = $('[name=mensagem]');
+                        el.parent().find('span').html('Por favor insira seu mensagem.');
+                        el.css('border','2px solid black');
+                    }
+
+                    if(erro == false){
+                        $('.box-sucesso').fadeIn(function(){
+                            setTimeout(function(){
+                                $('.box-sucesso').fadeOut();
+
+                            },5000);
+                        });
+                        $(this)[0].reset();
+                    }
+
+                    return false
+                })
+
+                function resetform(){
+                    $('input[type=text],textarea').css('border','1px solid black');
+                    $('span').html('');
+                }
+
+            })
+        </script>
+    </body>
+</html>
