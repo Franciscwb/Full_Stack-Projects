@@ -51,7 +51,36 @@ img{
 
 /**Estilização do site**/
 
+.sucesso{
+    display: none;
+    position: fixed;
+    right: 20px;
+    top: 60px;
+    padding: 15px 2%;
+    z-index: 999;
+    color: black;
+    font-weight: bold;
+    font-size: 14px;
+    background: #ccc;
+}
 
+.overlay-loading{
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.overlay-loading img{
+    width: 100px; 
+    height: 100px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
 header{
     padding: 20px 0;
     background: #3d437a;
@@ -91,12 +120,27 @@ nav.desktop a{
     text-decoration: none;
 }
 
-section.banner-principal{
+nav.desktop a:hover{
+    text-decoration: underline;
+}
+
+section.banner-container{
     width: 100%;
     height: 600px;
-    background-image: url('../images/alvar-aalto-nico-saieh-saynatsalo-town-hall-1951.jpg');
-    background-size: cover;
     position: relative;
+}
+
+.banner.single{
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    width: 100%;
+    display: none;
+    height: 100%;
+    opacity: 0;
+    background-size: cover;
+    background-position: center;
 }
 
 .overlay{
@@ -105,31 +149,31 @@ section.banner-principal{
     top: 0;
     width: 100%;
     height: 100%;
-    z-index: 1;
-    background-color: rgba(51, 51, 51, 0.7);
+    z-index: 2;
+    background: rgba(51, 51, 51, 0.7);
 }
 
-section.banner-principal form{
+section.banner-container form{
     width: 93%;
     max-width: 600px;
-    z-index: 2;
+    z-index: 3;
     position: absolute;
     left: 50%;
     top: 50%;
-    transform:translate(-50,-50);
-    -ms-transform:translate(-50,-50);
+    transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
 }
 
-section.banner-principal form h2{
+section.banner.container form h2{
     color: white;
     font-weight: 300;
     font-size: 30px;
     text-align: center;
 }
 
-section.banner-principal form input[type=email]{
+section.banner-container form input[type=email]{
     width: 100%;
-    height: 60px;
+    height: 66px;
     margin-top: 10px;
     background: white;
     color: #333;
@@ -137,9 +181,9 @@ section.banner-principal form input[type=email]{
     padding-left: 10px;
 }
 
-section.banner-principal form input[type=submit]{
+section.banner-container form input[type=submit]{
     width: 100%;
-    height: 60px;
+    height: 66px;
     margin-top: 10px;
     background: #00c59e;
     color: white;
@@ -149,7 +193,7 @@ section.banner-principal form input[type=submit]{
 }
 
 section.descricao-autor{
-    padding: 25px;
+    padding: 25px 0;
 }
 
 section.descricao-autor h2{
@@ -163,6 +207,7 @@ section.descricao-autor p{
     color: #444;
     margin-top: 10px;
     text-align: justify;
+    font-weight: 300;
 }
 
 section.especialidades{
@@ -207,7 +252,7 @@ section.extras{
 }
 
 .servicos-container,.depoimentos-container{
-    padding: 0 2%;
+    padding: 0 50px;
     text-align: justify;
     color: white;
 }
@@ -265,6 +310,14 @@ footer p{
     text-align: center;
     font-weight: 400;
     font-size: 20px;
+}
+
+/*
+Para arrumar scroll-x do IE e EDGE
+*/
+
+body{
+    overflow-x: hidden;
 }
 
 section.error-404 h2{
@@ -341,6 +394,53 @@ section.error-404 a{
     cursor: pointer;
 }
 
+.bullets{
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translate(-50%);
+    z-index: 5;
+}
+
+.bullets span{
+    margin: 0 10px;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: #444;
+}
+
+.bullets span.active-slider{
+    background: white;
+}
+
+@media screen and (max-width: 768px){
+    img{
+        float: none !important;
+        display: block;
+        margin: 0 auto;
+    }
+    
+    .w50{
+        text-align: justify;
+        padding: 20px;
+        width: 100%;
+    }
+
+    .w33{
+        width: 100%;
+        padding: 20px;
+    }
+
+    .box-especialidade{
+        padding: 40px 20px;
+        margin: 0;
+    }
+}
+
+
 @media screen and (max-width: 700px){
     nav.desktop{
         display: none;
@@ -379,32 +479,4 @@ section.error-404 a{
         color: white;
         text-decoration: none;
     }
-}
-
-@media screen and (max-width: 768px){
-    img{
-        float: none !important;
-        display: block;
-        margin: 0 auto;
-    }
-    
-    .w50{
-        text-align: justify;
-        padding: 20px;
-        width: 100%;
-    }
-
-    .w33{
-        width: 100%;
-        padding: 20px;
-    }
-
-    .box-especialidade{
-        padding: 40px 20px;
-        margin: 0;
-    }
-
-
-
-
 }

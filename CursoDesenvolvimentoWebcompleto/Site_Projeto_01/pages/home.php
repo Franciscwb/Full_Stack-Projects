@@ -1,56 +1,18 @@
-
-<?php include('config.php'); ?>
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Projeto 01</title>
-    <link rel="stylesheet" href="<?php echo INCLUDE_PATH; ?>style/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet"> 
-    
-    <link href="<?php echo INCLUDE_PATH; ?>style/style.css" rel="stylesheet" />
-  
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <meta name="keywords" content="palavras-chave,do,meu,site">
-    <meta name="description" content="Descrição do meu site">
-    <meta charset="utf-8" />
-</head>
-<body>
-    <header>
+<section class="banner-container">
+    <div style="background-image: url('<?php echo INCLUDE_PATH; ?>images/bg-form.jpg');" class="banner-single"></div><!--banner-single-->
+    <div style="background-image: url('<?php echo INCLUDE_PATH; ?>images/bg-form1.jpg');" class="banner-single"></div><!--banner-single-->
+    <div style="background-image: url('<?php echo INCLUDE_PATH; ?>images/bg-form2.jpg');" class="banner-single"></div><!--banner-single-->
+    <div class="overlay"></div><!--overlay-->
         <div class="center">
-            <div class="logo left"><a href="/"></a>Logomarca</div><!--logo-->
-            <nav class="desktop right">
-                <ul>
-                    <li><a href="<?php echo INCLUDE_PATH; ?>">Home</a></li>
-                    <li><a href="<?php echo INCLUDE_PATH; ?>sobre">Sobre</a></li>
-                    <li><a href="<?php echo INCLUDE_PATH; ?>servicos">Serviços</a></li>
-                    <li><a href="<?php echo INCLUDE_PATH; ?>contato">Contato</a></li>
-                </ul>
-            </nav>
-            <nav class="mobile right">
-                <div class="botao-menu-mobile">
-                    <i class="fa fa-bars" aria-hidden="true"></i>
-                </div>        
-                <ul>
-                    <li><a href="<?php echo INCLUDE_PATH; ?>">Home</a></li>
-                    <li><a href="<?php echo INCLUDE_PATH; ?>sobre">Sobre</a></li>
-                    <li><a href="<?php echo INCLUDE_PATH; ?>servicos">Serviços</a></li>
-                    <li><a href="<?php echo INCLUDE_PATH; ?>contato">Contato</a></li>
-                </ul>
-            </nav>
-        <div class="clear"></div><!--clear-->        
+        <form method="post">
+            <h2>Qual o seu melhor e-mail?</h2>
+            <input type="email" name="email" required />
+            <input type="hidden" name="identificador" value="form_home" />
+            <input type="submit" name="acao" value="Cadastrar!">
+        </form>
         </div><!--center-->
-    </header>
-
-    <section class="banner-principal">
-        <div class="overlay"></div><!--overlay-->
-        <div class="center">
-            <form>
-                <h2>Qual o seu melhor e-mail?</h2>
-                <input type="email" name="acao" required />
-                <input type="submit" name="acao" value="Cadastrar!">
-            </form>
-        </div><!--center-->
-    </section><!--banner-principal-->
+        <div class="bullets"></div><!--bullets-->
+</section><!--banner-container-->
 
     <section class="descricao-autor">
         <div class="center">
@@ -72,7 +34,7 @@
             <div class="w50 left">
                 <img class="right" src="<?php echo INCLUDE_PATH; ?>images/avatar.jpg">
             </div><!--w50-->
-            <div class="clear"></div><!--clear-->
+            <div class="clear"></div>
         </div><!--center-->
     </section><!--descrição-autor-->
 
@@ -141,6 +103,6 @@
                         </ul>
                     </div><!--servicos-->
             </div><!--w50-->
-            <div class="clear"></div><!--clear-->
+            <div class="clear"></div>
         </div><!--center-->
     </section><!--extras-->

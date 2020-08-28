@@ -3,9 +3,8 @@ $(function(){
 	var map;
 	
 	function initialize() {
-
 	  var mapProp = {
-	    center:new google.maps.LatLng(-27.609959,-48.576585),
+	    center:new google.maps.LatLng(-25.441105,-49.276855),
 	    zoom:14,
 	   	scrollwheel: false,
 	     styles: [{
@@ -73,6 +72,9 @@ $(function(){
 	    		infoWindow.open(map, marker);
 	    	}
 	}
+$(function(){
 
 	initialize();
-	addMarker(-27.609959,-48.576585,'',"Minha casa",undefined,false);
+	addMarker(-25.441105,-49.276855,'',"Minha Localização!",undefined,false);
+	
+})
